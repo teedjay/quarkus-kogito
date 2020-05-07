@@ -1,5 +1,5 @@
-# kogito-test project
-Testing a simple process flow to test Kogito with Quarkus.
+# quarkus-kogito
+Testing a simple process flow using Kogito and Quarkus.
 
 The input is a Person object (just name and age).  This input is processed by a service task that just does `Logging` to console before a decision is made.
 
@@ -13,7 +13,7 @@ The `Kid` flow will first call a `Kid` script task to write `"This is a kid"` to
 Then a service task `GrowUp` will automatically add one year to to the current age before it
 goes to a manual task for `Manual Approval`.
 
-The approval task needs a reason (just a text) before the flow will continue with 
+The approval task needs a reason (just a text) before the flow will continue with
 the `Finished` script task that just logs `"Approved, kid has grown up."` to the console.
 
 ## Running the application in dev mode
