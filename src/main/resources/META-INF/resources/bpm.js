@@ -1,7 +1,7 @@
 refreshList();
 
 function refreshList() {
-    fetch("http://localhost:8080/onboarding")
+    fetch("/onboarding")
     .then((response) => {
         return response.json();
     })
@@ -18,13 +18,13 @@ function refreshList() {
 
 function finishJob(processId) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", "http://localhost:8080/onboarding/" + processId + "/tasks", false);
+    xmlHttp.open("GET", "/onboarding/" + processId + "/tasks", false);
     xmlHttp.send(null);
     var workItemId = Object.keys(JSON.parse(xmlHttp.responseText))[0];
     var reason = document.getElementById("the-reason").value;
     console.log("Godkjenner " + processId + "/" + workItemId + " : " + reason);
 
-    fetch("http://localhost:8080/onboarding/" + processId + "/Task/" + workItemId + "?phase=complete", {
+    fetch("/onboarding/" + processId + "/Task/" + workItemId + "?phase=complete", {
      method: 'post',
      headers: { 'Content-Type': 'application/json' },
      body: JSON.stringify({
