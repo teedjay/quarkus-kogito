@@ -22,6 +22,12 @@ You can run your application in dev mode that enables live coding using:
 ./mvnw quarkus:dev
 ```
 
+## Deploy directly to OpenShift
+```
+oc login --token=<yourtoken> --server=<openshiftserver>
+mvn clean package -Dquarkus.kubernetes.deploy=true
+```
+
 ## Test the application
 Trigger a new flow using [swagger-ui](http://localhost:8080/swagger-ui/) or this curl
 ```
